@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://br85wjjpb2tck"]
+
+[ext_resource type="Texture2D" uid="uid://b0sb0qcblyah1" path="res://Assets/images/Snail/Walk (38x24).png" id="1_nsjvy"]
+[ext_resource type="Script" uid="uid://8bmtv6cnaufc" path="res://Scripts/snail.gd" id="1_qjijy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjijy"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(0, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnba0"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(38, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_casb8"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(76, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqs8f"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(114, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dokh"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(152, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyufb"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(190, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdrdu"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(228, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vib7w"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(266, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2nmr"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(304, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4bte"]
+atlas = ExtResource("1_nsjvy")
+region = Rect2(342, 0, 38, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_isgqn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjijy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnba0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_casb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqs8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dokh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyufb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdrdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vib7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2nmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4bte")
+}],
+"loop": true,
+"name": &"running",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rcfg"]
+size = Vector2(34, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nsjvy"]
+radius = 10.666667
+
+[node name="Snail" type="Area2D" unique_id=212216094]
+scale = Vector2(3, 3)
+script = ExtResource("1_qjijy")
+
+[node name="Snail Animate" type="AnimatedSprite2D" parent="." unique_id=802635431]
+sprite_frames = SubResource("SpriteFrames_isgqn")
+animation = &"running"
+autoplay = "running"
+
+[node name="Collision 1" type="CollisionShape2D" parent="." unique_id=457532706]
+position = Vector2(2, 4.5)
+shape = SubResource("RectangleShape2D_7rcfg")
+
+[node name="Collision 2" type="CollisionShape2D" parent="." unique_id=1804664355]
+position = Vector2(6.6666665, 0)
+shape = SubResource("CircleShape2D_nsjvy")
+
+[node name="Timer" type="Timer" parent="." unique_id=315840039]
+autostart = true
