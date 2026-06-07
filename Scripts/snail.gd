@@ -27,5 +27,6 @@ func _process(delta: float) -> void:
 		snail_animate.flip_h = true
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		emit_signal("ded")
+	if body.name == "Player" and body.alive:
+		emit_signal("ded", body)
+		print("ded")
