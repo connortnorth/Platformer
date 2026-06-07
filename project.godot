@@ -22,7 +22,12 @@ window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/github_to_itch/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
+
+[github_to_itch]
+
+config/itch_username="breadboy9439"
+config/itch_project_name="platformer"
 
 [input]
 
