@@ -2,7 +2,7 @@ extends Area2D
 @onready var tile_map_layer: TileMapLayer = $"../../TileMapLayer"
 @onready var snail_animate: AnimatedSprite2D = $"Snail Animate"
 
-
+signal ded
 const SPEED = 100
 var direction = -1
 var overlapping = 0
@@ -25,3 +25,7 @@ func _process(delta: float) -> void:
 		snail_animate.flip_h = false
 	else:
 		snail_animate.flip_h = true
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		emit_signal("ded")
