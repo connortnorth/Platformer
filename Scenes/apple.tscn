@@ -199,3 +199,4 @@ shape = SubResource("CircleShape2D_vo1ma")
 stream = ExtResource("4_lyte0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byppi2jvoulys"]
+
+[ext_resource type="Script" uid="uid://0bhj2qa0udmp" path="res://Scripts/main.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://b1ds16osok86s" path="res://Scenes/Levels/level1.tscn" id="2_bo1nx"]
+
+[node name="Main" type="Node2D" unique_id=1847152193]
+script = ExtResource("1_bo1nx")
+
+[node name="LevelRoot" parent="." unique_id=411042433 instance=ExtResource("2_bo1nx")]
+
+[node name="score" type="RichTextLabel" parent="." unique_id=863900234]
+offset_left = 22.0
+offset_top = 11.0
+offset_right = 176.0
+offset_bottom = 40.0
+text = "Score: 0"
+scroll_active = false

@@ -254,7 +254,7 @@ script = ExtResource("1_fkybt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=562826185]
 position = Vector2(0, 0.6666667)
 sprite_frames = SubResource("SpriteFrames_qpa8y")
-animation = &"dying"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492575647]
@@ -266,3 +266,5 @@ stream = ExtResource("6_x3wgy")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1410945828]
 stream = ExtResource("7_3smsa")
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

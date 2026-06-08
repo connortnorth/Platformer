@@ -30,13 +30,9 @@ func _on_ded(body):
 
 #Score:
 
-@onready var score: RichTextLabel = $score
-var num = 0
+@onready var score_label: Label = $"score label"
+var score = 0
 
 func _apple_collected():
-	var tempScore = (score.text).to_int() + 1
-	tempScore = str(tempScore)
-	score.text = "Score: " + tempScore
-	print("Apple Collected")
-	print(score.text)
-	
+	score += 1
+	score_label.text = "Score : %s" % score

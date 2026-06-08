@@ -13,8 +13,9 @@ func _ready() -> void:
 	startPositionX = position.x
 	startPositionY = position.y
 
-func _process(_delta: float) -> void:
-	if !alive and animated_sprite_2d.frame == 6:
+
+func _on_animated_sprite_2d_animation_looped() -> void:
+	if animated_sprite_2d.animation == "dying":
 		position.x = startPositionX
 		position.y = startPositionY
 		animated_sprite_2d.animation = "idle"
