@@ -7,11 +7,3 @@
 script = ExtResource("1_bo1nx")
 
 [node name="LevelRoot" parent="." unique_id=411042433 instance=ExtResource("2_bo1nx")]
-
-[node name="score" type="RichTextLabel" parent="." unique_id=863900234]
-offset_left = 22.0
-offset_top = 11.0
-offset_right = 176.0
-offset_bottom = 40.0
-text = "Score: 0"
-scroll_active = false

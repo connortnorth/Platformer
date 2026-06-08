@@ -3,10 +3,23 @@ extends CharacterBody2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -850
 var alive = true
+var startPositionX = position.x
+var startPositionY = position.y
+
+func _ready() -> void:
+	startPositionX = position.x
+	startPositionY = position.y
+
+func _process(_delta: float) -> void:
+	if !alive and animated_sprite_2d.frame == 6:
+		position.x = startPositionX
+		position.y = startPositionY
+		animated_sprite_2d.animation = "idle"
+		alive = true
+
 
 func _physics_process(delta: float) -> void:
 	if !alive:
