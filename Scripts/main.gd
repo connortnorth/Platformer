@@ -51,7 +51,7 @@ func _next_level(body: Node2D) -> void:\
 
 #Score:
 
-@onready var score_label: Label = $"score label"
+@onready var score_label: Label = $"HUD/ScorePanel/Score Label"
 var score = 0
 
 func _apple_collected():

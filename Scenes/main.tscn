@@ -4,19 +4,54 @@
 [ext_resource type="PackedScene" uid="uid://b1ds16osok86s" path="res://Scenes/Levels/level1.tscn" id="2_bo1nx"]
 [ext_resource type="FontFile" uid="uid://ccr0d1lgbxpwa" path="res://Assets/fonts/Square-Black.ttf" id="3_8gbba"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jjvhh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo1nx"]
+bg_color = Color(0.175, 0.5249999, 0.7, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
 font = ExtResource("3_8gbba")
-font_size = 50
+font_size = 30
 
 [node name="Main" type="Node2D" unique_id=1847152193]
 script = ExtResource("1_bo1nx")
 
 [node name="LevelRoot" parent="." unique_id=411042433 instance=ExtResource("2_bo1nx")]
 
-[node name="score label" type="Label" parent="." unique_id=1993716898]
-offset_left = 15.0
-offset_top = 4.0
-offset_right = 270.0
-offset_bottom = 55.0
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1096779727]
+
+[node name="ScorePanel" type="Panel" parent="HUD" unique_id=456885039]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo1nx")
+
+[node name="Score Label" type="Label" parent="HUD/ScorePanel" unique_id=1845117669]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -15.5
+offset_right = 51.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Score : 0"
-label_settings = SubResource("LabelSettings_jjvhh")
+label_settings = SubResource("LabelSettings_8gbba")
+horizontal_alignment = 1
+vertical_alignment = 1
