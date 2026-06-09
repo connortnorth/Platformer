@@ -6,6 +6,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -850
 var alive = true
+var can_move = true
 var startPositionX = position.x
 var startPositionY = position.y
 
@@ -35,6 +36,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		animated_sprite_2d.animation = "jumping"
 
+	if !can_move:
+		if !(animated_sprite_2d.animation == "idle"):
+			animated_sprite_2d.animation = "idle"
+		return
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -47,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
 	move_and_slide()
 
 	if direction == 1.0:
