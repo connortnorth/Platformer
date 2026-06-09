@@ -46,8 +46,7 @@ func _next_level(body: Node2D) -> void:\
 	if body.name == "Player":
 		level += 1
 		body.can_move = false
-		_load_level(level)
-		body.can_move = true
+		call_deferred("_load_level", level)
 
 #Score:
 
