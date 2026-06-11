@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://0bhj2qa0udmp" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b1ds16osok86s" path="res://Scenes/Levels/level1.tscn" id="2_bo1nx"]
 [ext_resource type="FontFile" uid="uid://ccr0d1lgbxpwa" path="res://Assets/fonts/Square-Black.ttf" id="3_8gbba"]
+[ext_resource type="AudioStream" uid="uid://b8bvwqgfgjs1n" path="res://Assets/sounds/music.ogg" id="4_jjvhh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo1nx"]
 bg_color = Color(0.175, 0.5249999, 0.7, 1)
@@ -60,3 +61,8 @@ vertical_alignment = 1
 offset_right = 1288.0
 offset_bottom = 728.0
 color = Color(0, 0, 0, 1)
+
+[node name="Background music" type="AudioStreamPlayer" parent="." unique_id=1606579576]
+stream = ExtResource("4_jjvhh")
+
+[connection signal="finished" from="Background music" to="." method="_on_background_music_finished"]

@@ -10,9 +10,14 @@ func _ready() -> void:
 	#setup the level
 	fade.modulate.a = 1.0
 	current_level_root = get_node("LevelRoot")
-	_load_level(level)
+	await _load_level(level, true)
+	background_music.play()
 
-func _load_level(level_number: int) -> void:
+func _load_level(level_number: int, first_load: bool) -> void:
+	if !first_load:
+		await _fade(1.0)
+	
+	
 	if current_level_root:
 		current_level_root.queue_free()
 
@@ -23,7 +28,7 @@ func _load_level(level_number: int) -> void:
 	_setup_level(current_level_root)
 
 	#fade in:
-	_fade(0.0)
+	await _fade(0.0)
 
 
 func _setup_level(level_root: Node) -> void:
@@ -52,7 +57,7 @@ func _next_level(body: Node2D) -> void:\
 	if body.name == "Player":
 		level += 1
 		body.can_move = false
-		call_deferred("_load_level", level)
+		await _load_level(level, false)
 
 #Score:
 
@@ -69,3 +74,8 @@ func _fade(to_alpha: float) -> void:
 	var tween := create_tween()
 	tween.tween_property(fade, "modulate:a", to_alpha, 1.5)
 	await tween.finished
+
+@onready var background_music: AudioStreamPlayer = $"Background music"
+
+func _on_background_music_finished() -> void:
+	background_music.play()
